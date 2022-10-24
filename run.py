@@ -1,8 +1,8 @@
 import random
 import time
 
-#List of words
 
+#List of words
 colors = ["green", "orange", "pink","brown","black","white","purple","blue",
           "yellow", "gray", "red", "beige", "violet", ]
 fruits = ["kiwi", "apple", "apricot", "banana", "blacberry", "blueberry", "cherry",
@@ -12,9 +12,7 @@ animals = ["dog", "lion", "pig", "rabbit", "duck", "fox", "horse", "cow", "deer"
            "snake", "panda", "frog", "cat", "scorpion", "bee", "sheep", "otter", "bison",
            "owl", "ladybug", "bat", "hippo", "elephant", "tiger", "Kangaroo", "dolphin", 
            "beer", "wale", "eagle", "turtle", "monkey", "zebra", "gerraf"]
-
-
-#Title
+category = [colors, fruits, animals]
 
 
 def welcome():
@@ -38,8 +36,7 @@ def welcome():
     print("============================")
 
     user_name = input("Please enter your name: \n")
-    print(f"~~~~~~  Welcome to hangman game, {user_name} ~~~~~~")
-    pause()
+    print(f"Welcome to the hangman game, {user_name}")
 
 
 def instructions():
@@ -49,7 +46,7 @@ def instructions():
     print("Do you know how to play or would you like a brief instruction on how to do it?")
     instruction_on = input("Press y if yes, any other key to play game : \n")
     if instruction_on.lower() == "y":
-        instructions_text()
+        instructions()
         print("Are you ready to play?")
         game_start = input("Press Any key to start a game >> \n")
     else:
@@ -71,6 +68,28 @@ def instructions_needed():
           "7. If you guess all the letters, you win the game\n"
           "8. You have an attemps limit, if you reach this limit\n"
           "   and the hangman image is completed...the game is over!")
+
+
+def select_category():
+    """
+    The user has to select a category in order to start the game
+    """
+    print("Please choose a category \n")
+    print("1. Colors\n"
+          "2. Fruits\n"
+          "3. Animals\n"
+          "4. Mixed\n")
+    category_num = 0
+    while not 1 <= category_num <= 4:
+        try:
+            category_num = int(input("Please enter 1, 2, 3 or 4  >>>  \n"))
+            if 1 <= category_num <= 4:
+                return category_num
+            else:
+                pass
+        except ValueError as e:
+            print("Only number 1, 2, 3 or 4 accepted")
+
 
 
 
